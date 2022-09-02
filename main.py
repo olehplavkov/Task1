@@ -3,9 +3,9 @@ from tkinter import PhotoImage
 from turtle import rt
 import telebot
 from telebot import types
+language = ukrainian
 
 bot = telebot.TeleBot('5444617281:AAFqUQptRNXdsRrwSgumYS38m9toSDDnJFQ')
-
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -16,9 +16,11 @@ def start(message):
 def get_user_text(message):
     if message.text == "Hello":
       bot.send_message(message.chat.id, "І тобі привіт", parse_mode='html')
+    
     elif message.text == "id":
         bot.send_message(
             message.chat.id, f"Твій ID: {message.from_user.id}", parse_mode='html')
+    
     elif message.text == "send photo":
         photo=open('9.png', 'rb')
         bot.send_photo(update.message.chat_id, photo)
